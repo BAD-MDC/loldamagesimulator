@@ -3,17 +3,10 @@ import './App.css';
 import {useState} from 'react';
 
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 
 //import ItemSearch from './ItemSearch';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background: #e9ecef;
-  }
-`;
 
 function Header(){
   return <header>
@@ -150,7 +143,6 @@ function App() {
 
   return (
     <div>
-      <GlobalStyle/>
       <Header></Header>
       <Article1></Article1>
       <Article2></Article2>
