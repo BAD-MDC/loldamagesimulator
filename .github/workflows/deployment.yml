@@ -25,6 +25,7 @@ jobs:
     - name: Build
       working-directory: ./frontend
       run: |
-        echo pwd
+        pwd
         npm install
+        npm install -g gh-pages
         npm run deploy
