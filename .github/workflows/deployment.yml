@@ -23,7 +23,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Build
+      working-directory: ./frontend
+      env:
+        MY_EMAIL: craycoding@gmail.com
+        MY_NAME: crAy
       run: |
+        git config --global user.email $MY_EMAIL
+        git config --global user.name $MY_NAME
+        git remote set-url origin https://BAD-MDC:${{ secrets.BAD_MDC_PASSWORD }}@github.com/BAD-MDC/loldamagesimulator.git
         npm install
-        react-scripts build
-        npm deploy
+        npm install -g gh-pages
+        npm run deploy
