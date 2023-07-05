@@ -30,7 +30,7 @@ jobs:
       run: |
         git config --global user.email $MY_EMAIL
         git config --global user.name $MY_NAME
-        git remote set-url origin https://BAD-MDC:${{ secrets.BAD_MDC_PASSWORD }}@github.com/loldamagesimulator/homepage.git
+        git remote set-url origin https://BAD-MDC:${{ secrets.BAD_MDC_PASSWORD }}@github.com/BAD-MDC/loldamagesimulator.git
         npm install
         npm install -g gh-pages
         npm run deploy
