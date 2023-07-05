@@ -24,8 +24,13 @@ jobs:
 
     - name: Build
       working-directory: ./frontend
+      env:
+        MY_EMAIL: craycoding@gmail.com
+        MY_NAME: crAy
       run: |
-        pwd
+        git config --global user.email $MY_EMAIL
+        git config --global user.name $MY_NAME
+        git remote set-url origin https://BAD-MDC:${{ secrets.BAD_MDC_PASSWORD }}@github.com/loldamagesimulator/homepage.git
         npm install
         npm install -g gh-pages
         npm run deploy
