@@ -25,7 +25,6 @@ jobs:
     - name: Build
       working-directory: ./frontend
       run: |
+        echo pwd
         npm install
-        npm install react-scripts
-        react-scripts build
         npm run deploy
