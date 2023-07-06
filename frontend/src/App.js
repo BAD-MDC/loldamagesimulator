@@ -6,7 +6,7 @@ import React from 'react';
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 
-//import ItemSearch from './ItemSearch';
+import ItemSearch from './ItemSearch';
 
 function Header(){
   return <header>
@@ -105,19 +105,19 @@ function Create4(){
     <h1>Skill</h1>
     <div>
       <p>Select Your Champion and its State</p>
-      <img src={process.env.PUBLIC_URL + '/img/Akali.png'} alt=""/>
+      <img src={process.env.PUBLIC_URL + '/img/champions/Akali.png'} alt=""/>
       <p><input type = 'text' value = {inputValue} onChange={handleInputChange} /></p>
       <button onClick={handleClick1}>Q</button>
       <button onClick={handleClick2}>W</button>
       <button onClick={handleClick3}>E</button>
       <button onClick={handleClick4}>R</button>
       <button onClick={handleClick5}>평타</button>
+      <p><button onClick={handleReset}>Reset</button></p>
       <h2>Item Search</h2>
-      {/* <ItemSearch /> */}
+      {<ItemSearch />}
       <p>Verse.</p>
       <p>Select Your Opposite Champion and its State</p>
-      <img src={process.env.PUBLIC_URL + '/img/Aatrox.png'} alt=""/>
-      <p><button onClick={handleReset}>Reset</button></p>
+      <img src={process.env.PUBLIC_URL + '/img/champions/Aatrox.png'} alt=""/>
       <p><button onClick={handleSum}>Analysis</button></p>
     </div>
   </article>
