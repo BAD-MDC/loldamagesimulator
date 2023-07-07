@@ -33,4 +33,4 @@ jobs:
         git remote set-url origin https://BAD-MDC:${{ secrets.BAD_MDC_PASSWORD }}@github.com/BAD-MDC/loldamagesimulator.git
         npm install
         npm install -g gh-pages
-        npm run deploy
+        CI=false npm run deploy
