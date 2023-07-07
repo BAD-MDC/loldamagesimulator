@@ -48,6 +48,8 @@ const SearchSelect = ({ data }) => {
   );
 };
 
+//선택된 아이템 값은 selectedItem에 들어 있어, 이를 토대로 향후 아이템 값을 적용할 수 있음
+
 const data = [
     'Hextech Rocketbelt',
     'Shadowflame',
