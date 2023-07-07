@@ -6,7 +6,56 @@ import React from 'react';
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 
-import ItemSearch from './ItemSearch';
+const SearchSelect = ({ data }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredData, setFilteredData] = useState(data);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value;
+    setSearchTerm(searchTerm);
+
+    // 검색어를 사용하여 데이터를 필터링합니다.
+    const filteredData = data.filter(item =>
+      item.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredData(filteredData);
+  };
+
+  const handleSelectItem = (item) => {
+    setSelectedItem(item);
+    // 선택된 항목을 다른 곳에서 사용하거나 저장할 수 있습니다.
+    console.log('선택된 항목:', item);
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="검색어를 입력하세요"
+        value={searchTerm}
+        onChange={handleSearch}
+      />
+      <ul>
+        {filteredData.map(item => (
+          <li key={item} onClick={() => handleSelectItem(item)}>
+            {item}
+          </li>
+        ))}
+      </ul>
+      {selectedItem && <p>선택된 아이템: {selectedItem}</p>}
+    </div>
+  );
+};
+
+const data = [
+    'Hextech Rocketbelt',
+    'Shadowflame',
+    'Zhonyas Hourglass',
+    'Rabaons Deathcap',
+    'Void Staff',
+    'Socerers Shoes',
+  ];
 
 function Header(){
   return <header>
@@ -114,7 +163,7 @@ function Create4(){
       <button onClick={handleClick5}>평타</button>
       <p><button onClick={handleReset}>Reset</button></p>
       <h2>Item Search</h2>
-      {<ItemSearch />}
+      <SearchSelect data={data} />
       <p>Verse.</p>
       <p>Select Your Opposite Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Aatrox.png'} alt=""/>
