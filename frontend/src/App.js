@@ -32,7 +32,7 @@ const SearchSelect = ({ data }) => {
     <div>
       <input
         type="text"
-        placeholder="검색어를 입력하세요"
+        placeholder="검색할 아이템 이름을 입력하세요"
         value={searchTerm}
         onChange={handleSearch}
       />
@@ -44,6 +44,7 @@ const SearchSelect = ({ data }) => {
         ))}
       </ul>
       {selectedItem && <p>선택된 아이템: {selectedItem}</p>}
+      {}
     </div>
   );
 };
@@ -86,7 +87,7 @@ function Nav(props){
   </nav>
 }
 
-function Create1(){
+function Create1(){/*
   return <article>
     <h2>Expected Team Winning Rate</h2>
     <form>
@@ -97,10 +98,10 @@ function Create1(){
       <p><input type="text" name="title" placeholder="Champion5"></input></p>
       <p><input type = "submit" value = "Caculate"></input></p>
     </form>
-  </article>
+  </article>*/
 }
 
-function Create2(){
+function Create2(){/*
   return <article>
     <h2>Expected Of Line Match</h2>
     <form>
@@ -108,10 +109,10 @@ function Create2(){
       <p><input type="text" name="title" placeholder="Champion2"></input></p>
       <p><input type = "submit" value = "Caculate"></input></p>
     </form>
-  </article>
+  </article>*/
 }
 
-function Create3(){
+function Create3(){/*
   return <article>
     <h2>Comparsion Within Tier</h2>
     <form>
@@ -119,11 +120,12 @@ function Create3(){
       <p><input type="text" name="title" placeholder="Champion2"></input></p>
       <p><input type = "submit" value = "Caculate"></input></p>
     </form>
-  </article>
+  </article>*/
 }
 
 function Create4(){
   const [inputValue, setInputValue] = useState('');
+  const [inputItem, setInputItem] = useState('');
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -134,7 +136,10 @@ function Create4(){
   const handleSum = () => {
     alert('미구현')
     //inputValue가 string으로 입력받아 이를 BE에 넘겨서 계산
-  }
+  };
+  const handleInputItemChange = (e) =>{
+    setInputItem(e.target.value);
+  };
 
   const handleClick1 = () => {
     setInputValue(inputValue + 'Q');
@@ -151,6 +156,9 @@ function Create4(){
   const handleClick5 = () => {
     setInputValue(inputValue + '평');
   };
+  const handleClick6 = () =>{
+    setInputItem(inputItem);
+  };
 
   return <article>
     <h1>Skill</h1>
@@ -166,6 +174,7 @@ function Create4(){
       <p><button onClick={handleReset}>Reset</button></p>
       <h2>Item Search</h2>
       <SearchSelect data={data} />
+      <p><button onClick={handleClick6}>Add Item</button></p>
       <p>Verse.</p>
       <p>Select Your Opposite Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Aatrox.png'} alt=""/>
@@ -177,8 +186,9 @@ function Create4(){
 function App() {
   const [mode, setMode] = useState('e');
 
-  let content = null;
-
+  let content = <Create4></Create4>;
+      //null;
+/*
   if(mode === 'CREATE1'){
     content = <Create1></Create1>
   }
@@ -191,7 +201,7 @@ function App() {
   else if (mode === 'CREATE4'){
     content = <Create4></Create4>
   }
-
+*/
   return (
     <div>
       <Header></Header>
