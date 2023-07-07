@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/loldamagesimulator/static/css/main.073c9b0a.css",
-    "main.js": "/loldamagesimulator/static/js/main.c150b0dc.js",
+    "main.js": "/loldamagesimulator/static/js/main.2e5994d9.js",
     "index.html": "/loldamagesimulator/index.html",
     "main.073c9b0a.css.map": "/loldamagesimulator/static/css/main.073c9b0a.css.map",
-    "main.c150b0dc.js.map": "/loldamagesimulator/static/js/main.c150b0dc.js.map"
+    "main.2e5994d9.js.map": "/loldamagesimulator/static/js/main.2e5994d9.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.c150b0dc.js"
+    "static/js/main.2e5994d9.js"
   ]
 }
