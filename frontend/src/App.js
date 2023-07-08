@@ -128,7 +128,8 @@ function Create4(){
   const [inputItem, setInputItem] = useState('');
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    const { value } = e.target;
+    const englishOnly = value.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '');
   };
   const handleReset = () => {
     setInputValue('');
