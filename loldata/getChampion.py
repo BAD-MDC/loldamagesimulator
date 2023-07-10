@@ -9,13 +9,13 @@ def latest_version():
 
 
 def champions():
-    champions_data_url = "http://ddragon.leagueoflegends.com/cdn/" + latest_version() + "/data/ko_KR/champion.json"
+    champions_data_url = "http://ddragon.leagueoflegends.com/cdn/" + latest_version() + "/data/en_US/champion.json"
     champions_data = requests.get(champions_data_url).json()
     return champions_data
 
 
 def champion(champion_name):
-    champion_data_url = "http://ddragon.leagueoflegends.com/cdn/" + latest_version() + "/data/ko_KR/champion/" + champion_name + ".json"
+    champion_data_url = "http://ddragon.leagueoflegends.com/cdn/" + latest_version() + "/data/en_US/champion/" + champion_name + ".json"
     champion_data = requests.get(champion_data_url).json()
     return champion_data
 
@@ -29,3 +29,7 @@ def writeChampionJSON(champion_name) :
     champion_json_file_name = './champions/' + champion_name + '.json'
     with open(champion_json_file_name, 'w') as convert_file:
         json.dump(champion(champion_name), convert_file, ensure_ascii = False)
+
+
+#for champ in champions()['data'] :
+#    writeChampionJSON(champ)
