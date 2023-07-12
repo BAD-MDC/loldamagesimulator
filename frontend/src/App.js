@@ -4,8 +4,6 @@ import {useState} from 'react';
 
 import React from 'react';
 
-//import "bootstrap/dist/css/bootstrap.min.css";
-
 const SearchSelect = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
@@ -87,49 +85,12 @@ function Nav(props){
   </nav>
 }
 
-function Create1(){/*
-  return <article>
-    <h2>Expected Team Winning Rate</h2>
-    <form>
-      <p><input type="text" name="title" placeholder="Champion1"></input></p>
-      <p><input type="text" name="title" placeholder="Champion2"></input></p>
-      <p><input type="text" name="title" placeholder="Champion3"></input></p>
-      <p><input type="text" name="title" placeholder="Champion4"></input></p>
-      <p><input type="text" name="title" placeholder="Champion5"></input></p>
-      <p><input type = "submit" value = "Caculate"></input></p>
-    </form>
-  </article>*/
-}
-
-function Create2(){/*
-  return <article>
-    <h2>Expected Of Line Match</h2>
-    <form>
-      <p><input type="text" name="title" placeholder="Champion1"></input></p>
-      <p><input type="text" name="title" placeholder="Champion2"></input></p>
-      <p><input type = "submit" value = "Caculate"></input></p>
-    </form>
-  </article>*/
-}
-
-function Create3(){/*
-  return <article>
-    <h2>Comparsion Within Tier</h2>
-    <form>
-      <p><input type="text" name="title" placeholder="Champion1"></input></p>
-      <p><input type="text" name="title" placeholder="Champion2"></input></p>
-      <p><input type = "submit" value = "Caculate"></input></p>
-    </form>
-  </article>*/
-}
-
-function Create4(){
+function Create1(){
   const [inputValue, setInputValue] = useState('');
   const [inputItem, setInputItem] = useState('');
 
   const handleInputChange = (e) => {
     const { value } = e.target;
-    const englishOnly = value.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '');
   };
   const handleReset = () => {
     setInputValue('');
@@ -137,9 +98,6 @@ function Create4(){
   const handleSum = () => {
     alert('미구현')
     //inputValue가 string으로 입력받아 이를 BE에 넘겨서 계산
-  };
-  const handleInputItemChange = (e) =>{
-    setInputItem(e.target.value);
   };
 
   const handleClick1 = () => {
@@ -173,9 +131,9 @@ function Create4(){
       <button onClick={handleClick4}>R</button>
       <button onClick={handleClick5}>평타</button>
       <p><button onClick={handleReset}>Reset</button></p>
+       {inputValue && <p>Combo: {inputValue}</p>}
       <h2>Item Search</h2>
       <SearchSelect data={data} />
-      <p><button onClick={handleClick6}>Add Item</button></p>
       <p>Verse.</p>
       <p>Select Your Opposite Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Aatrox.png'} alt=""/>
@@ -185,49 +143,14 @@ function Create4(){
 }
 
 function App() {
-  const [mode, setMode] = useState('e');
-
-  let content = <Create4></Create4>;
-      //null;
-/*
-  if(mode === 'CREATE1'){
-    content = <Create1></Create1>
-  }
-  else if(mode === 'CREATE2'){
-    content = <Create2></Create2>
-  }
-  else if(mode === 'CREATE3'){
-    content = <Create3></Create3>
-  }
-  else if (mode === 'CREATE4'){
-    content = <Create4></Create4>
-  }
-*/
+  let content = <Create1></Create1>;
   return (
     <div>
       <Header></Header>
       <Article1></Article1>
       <Article2></Article2>
       <Nav></Nav>
-
       {content}
-      <p><a href="/1. Expected Team Winning Rate" onClick={event=>{
-        event.preventDefault();
-        setMode('CREATE1');
-      }}>Expected Team Winning Rate</a></p>
-      <p><a href="/2. Expected Of Line Match" onClick={event=>{
-        event.preventDefault();
-        setMode('CREATE2');
-      }}>Expected Of Line Match</a></p>
-      <p><a href="/3. Comparison Within Tier" onClick={event=>{
-        event.preventDefault();
-        setMode('CREATE3');
-      }}>Comparison Within Tier</a></p>
-      <p><a href="/4. Skill" onClick={event=>{
-        event.preventDefault();
-        setMode('CREATE4');
-      }}>Skill</a></p>
-
     </div>
   );
 }
