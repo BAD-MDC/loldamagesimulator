@@ -8,6 +8,10 @@ body {
   text-align: center;
 }
 
+p{
+white-space: pre-line;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
