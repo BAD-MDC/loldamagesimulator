@@ -165,15 +165,17 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 30vh;
 `;
 
 const ButtonContainer = styled.div`
   display: grid;
   width: 40%;
   max-width: 450px;
-  height: 50%;
+  height: 20%;
   grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
 `;
 
 const Button = styled.button`
@@ -183,11 +185,11 @@ const Button = styled.button`
   font-size: 1.5rem;
   border-radius: 35px;
   cursor: pointer;
-  box-shadow: 3px 3px 3px lightgray;
+  box-shadow: 2px 2px 2px lightgray;
 
   &:active {
-    margin-left: 2px;
-    margin-top: 2px;
+    margin-left: 1px;
+    margin-top: 1px;
     box-shadow: none;
   }
 `;
@@ -199,15 +201,15 @@ const CalButton = styled(Button)`
 `;
 
 const InputBar = styled.input`
-  width: 75%;
+  width: 50%;
   max-width: 450px;
   height: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border-radius: 10px;
   font-size: 20px;
   border: 2px solid #4b89dc;
   text-align: center;
-  padding-right: 20px;
+  padding-right: 10px;
   &:focus {
     outline: none;
   }
