@@ -32,24 +32,27 @@ def writeChampionJSON(champion_name) :
 
 def writeChampionTXT(champion_name) :
     champion_txt_file_name = open('./champion_info/' + champion_name + '.txt', 'w')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['hp']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['hpperlevel']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['mp']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['mpperlevel']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['armor']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['armorperlevel']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['spellblock']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['spellblockperlevel']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['attackdamage']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['attackdamageperlevel']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['attackspeed']) + '\n')
-    champion_txt_file_name.write(str(champion(champion_name)['data'][champion_name]['stats']['attackspeedperlevel']) + '\n')
+    data = str(champion(champion_name)['data'][champion_name]['stats']['hp']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['hpperlevel']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['mp']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['mpperlevel']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['armor']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['armorperlevel']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['spellblock']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['spellblockperlevel']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['attackdamage']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['attackdamageperlevel']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['attackspeed']) + '\n'\
+            + str(champion(champion_name)['data'][champion_name]['stats']['attackspeedperlevel']) + '\n'
+
+    champion_txt_file_name.write(data)
+    champion_txt_file_name.close()
 
 
 
 for champ in champions()['data'] :
     writeChampionTXT(champ)
-#    print(champ)
+    print(champ)
 #    writeChampionJSON(champ)
 
 #print(champion('Aatrox'))
