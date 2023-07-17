@@ -29,7 +29,7 @@ const SearchSelect = ({ data }) => {
 
   return (
     <div>
-      <input
+      <InputBar
         type="text"
         placeholder="검색할 아이템 이름을 입력하세요"
         value={searchTerm}
@@ -68,7 +68,7 @@ function Header(){
 function Article1(){
   return <article>
     <h2>Welcome to LOL_MDC</h2>
-      LOL_MDC has 4 Component, Expected Team Winning Rate, Expected Of Line Match, Comparison Within Tier and Analysis Skill Damage.
+      LOL_MDC has Analysis League of Legends' Skill Damage Calculator.
   </article>
 }
 
@@ -125,8 +125,8 @@ function Create1(){
     <div>
       <p>Select Your Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Akali.png'} alt=""/>
-      <p><input type = 'text' value = {inputValue} onChange={handleInputChange} /></p>
       <MainContainer>
+        <p><InputBar type = 'text' value = {inputValue} onChange={handleInputChange} /></p>
         <ButtonContainer>
         <Button onClick={handleClick1}>Q</Button>
         <Button onClick={handleClick2}>W</Button>
@@ -136,13 +136,13 @@ function Create1(){
         <p><CalButton onClick={handleReset}>Reset</CalButton></p>
         </ButtonContainer>
       </MainContainer>
-      {inputValue && <p>Combo: {inputValue}</p>}
-      <h2>Item Search</h2>
+      <p>{inputValue && <p>Combo: {inputValue}</p>}</p>
+      <p><h2>Item Search</h2></p>
       <SearchSelect data={data} />
       <p>Verse.</p>
       <p>Select Your Opposite Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Aatrox.png'} alt=""/>
-      <p><button onClick={handleSum}>Analysis</button></p>
+      <p><CalButton onClick={handleSum}>Analysis</CalButton></p>
     </div>
   </article>
 }
@@ -196,6 +196,21 @@ const CalButton = styled(Button)`
   font-size: 2rem;
   color: white;
   background-color: #4b89dc;
+`;
+
+const InputBar = styled.input`
+  width: 75%;
+  max-width: 450px;
+  height: 25px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 2px solid #4b89dc;
+  text-align: center;
+  padding-right: 20px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export default App;
