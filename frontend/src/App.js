@@ -126,13 +126,17 @@ function Create1(){
       <p>Select Your Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Akali.png'} alt=""/>
       <p><input type = 'text' value = {inputValue} onChange={handleInputChange} /></p>
-      <button onClick={handleClick1}>Q</button>
-      <button onClick={handleClick2}>W</button>
-      <button onClick={handleClick3}>E</button>
-      <button onClick={handleClick4}>R</button>
-      <button onClick={handleClick5}>평타</button>
-      <p><button onClick={handleReset}>Reset</button></p>
-       {inputValue && <p>Combo: {inputValue}</p>}
+      <MainContainer>
+        <ButtonContainer>
+        <Button onClick={handleClick1}>Q</Button>
+        <Button onClick={handleClick2}>W</Button>
+        <Button onClick={handleClick3}>E</Button>
+        <Button onClick={handleClick4}>R</Button>
+        <Button onClick={handleClick5}>평타</Button>
+        <p><CalButton onClick={handleReset}>Reset</CalButton></p>
+        </ButtonContainer>
+      </MainContainer>
+      {inputValue && <p>Combo: {inputValue}</p>}
       <h2>Item Search</h2>
       <SearchSelect data={data} />
       <p>Verse.</p>
@@ -156,12 +160,20 @@ function App() {
   );
 }
 
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+`;
+
 const ButtonContainer = styled.div`
   display: grid;
   width: 40%;
   max-width: 450px;
   height: 50%;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 `;
 
 const Button = styled.button`
