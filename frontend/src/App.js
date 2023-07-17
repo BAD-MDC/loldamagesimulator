@@ -1,6 +1,7 @@
 
 import './App.css';
 import {useState} from 'react';
+import styled from "styled-components";
 
 import React from 'react';
 
@@ -154,6 +155,36 @@ function App() {
     </div>
   );
 }
+
+const ButtonContainer = styled.div`
+  display: grid;
+  width: 40%;
+  max-width: 450px;
+  height: 50%;
+  grid-template-columns: repeat(4, 1fr);
+`;
+
+const Button = styled.button`
+  background-color: #f2f3f5;
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+  border-radius: 35px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px lightgray;
+
+  &:active {
+    margin-left: 2px;
+    margin-top: 2px;
+    box-shadow: none;
+  }
+`;
+
+const CalButton = styled(Button)`
+  font-size: 2rem;
+  color: white;
+  background-color: #4b89dc;
+`;
 
 export default App;
 
