@@ -17,19 +17,24 @@ def getChampionStats(champion_name, level):
     return [hp, mp, armor, spellblock, atkdmg, atkspd]
 
 def getChampionSkill(champion_name, skill):
-    if skill == 'p' or 'P':
+    if skill == 'p' or skill == 'P':
         index = 12
-    if skill == 'q' or 'Q':
+    elif skill == 'q' or skill == 'Q':
         index = 13
-    if skill == 'w' or 'W':
+    elif skill == 'w' or skill == 'W':
         index = 14
-    if skill == 'e' or 'E':
+    elif skill == 'e' or skill == 'E':
         index = 15
-    if skill == 'r' or 'R':
+    elif skill == 'r' or skill == 'R':
         index = 16
+    damages = []
     skill_info = getChampionData(champion_name)[index]
-    skill_type = skill_info.split(' ', maxsplit=1)[0]
-    skill_dmg = skill_info.split(' ', maxsplit=1)[1]
-    if skill_type == 0 or skill_type == 'H' or skill_type == 'S':
-        return 0
-    return skill_dmg
+    skill_index = skill_info.split(' + ')
+    for si in skill_index:
+        if si[0] == 0 or si[0] == 'B' or si[0] == 'S':
+            continue
+        else:
+            damages.append(si)
+    return damages
+
+#print(getChampionSkill("Ahri","q"))
