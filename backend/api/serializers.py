@@ -9,4 +9,4 @@ class Champion_stats_Serializer(serializers.ModelSerializer):
 class test_Serializer(serializers.ModelSerializer):
     class Meta:
         model = test
-        fields=('id','name','combo','item')
+        fields=('id','name','combo','level','item')

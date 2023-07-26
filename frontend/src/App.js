@@ -101,6 +101,7 @@ function Create1(){
       .post("http://localhost:8000/test/", {
         name:"아리",
         combo: inputvalue,
+        level: 12,
         item: "마법사의 지팡이",
       })
     .then((response) => {

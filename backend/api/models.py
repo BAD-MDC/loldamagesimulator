@@ -27,4 +27,5 @@ class test(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=128)
     combo=models.CharField(max_length=128)
+    level=models.IntegerField(default=1)
     item=models.CharField(max_length=128)
