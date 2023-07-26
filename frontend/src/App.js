@@ -1,8 +1,7 @@
-
 import './App.css';
 import {useState} from 'react';
 import styled from "styled-components";
-
+import axios from "axios";
 import React from 'react';
 
 const SearchSelect = ({ data }) => {
@@ -96,8 +95,20 @@ function Create1(){
   const handleReset = () => {
     setInputValue('');
   };
-  const handleSum = () => {
-    alert('미구현')
+  const handleSum = (inputvalue,data) => {
+    alert("계산")
+    axios
+      .post("http://localhost:8000/test/", {
+        name:"아리",
+        combo: inputvalue,
+        item: "마법사의 지팡이",
+      })
+    .then((response) => {
+        if (response.status < 300) {
+          console.log(response.data);
+          alert(response.data['data']);
+        }
+      });
     //inputValue가 string으로 입력받아 이를 BE에 넘겨서 계산
   };
 
@@ -142,7 +153,7 @@ function Create1(){
       <p>Verse.</p>
       <p>Select Your Opposite Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Aatrox.png'} alt=""/>
-      <p><CalButton onClick={handleSum}>Analysis</CalButton></p>
+      <p><CalButton onClick={()=>{handleSum(inputValue,data)}}>Analysis</CalButton></p>
     </div>
   </article>
 }
@@ -216,4 +227,3 @@ const InputBar = styled.input`
 `;
 
 export default App;
-

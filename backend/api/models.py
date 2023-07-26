@@ -22,3 +22,9 @@ class Champion_stats(models.Model):
     attackdamage_perlevel=models.IntegerField()
     attackspeed=models.IntegerField()
     attackspeed_perlevel=models.IntegerField()
+
+class test(models.Model):
+    id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=128)
+    combo=models.CharField(max_length=128)
+    item=models.CharField(max_length=128)
