@@ -1,0 +1,10 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+#backend 데이터 베이스 , 마이그레이션
+./backend/db.sqlite.3
+./backend/api/migrations/
+
+# dependencies
+/frontend/build
+/frontend/node_modules
+/loldata/champion_info
