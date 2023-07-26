@@ -58,6 +58,28 @@ const data = [
     'Socerers Shoes',
   ];
 
+const LevelSelector = () => {
+  const [selectedLevel, setSelectedLevel] = useState('');
+
+  const handleLevelChange = (event) => {
+    setSelectedLevel(event.target.value);
+  };
+
+  return (
+    <div>
+      <select value={selectedLevel} onChange={handleLevelChange}>
+        <option value="">레벨을 선택하세요</option>
+        <option value="1">Level 1</option>
+        <option value="3">Level 3</option>
+        <option value="6">Level 6</option>
+        <option value="16">Level 16</option>
+        <option value="18">Level 18</option>
+      </select>
+      {selectedLevel && <p>You selected Level {selectedLevel}</p>}
+    </div>
+  );
+};
+
 function Header(){
   return <header>
     <h1 ><a href="/">LOL_MDC</a></h1>
@@ -139,6 +161,7 @@ function Create1(){
       <img src={process.env.PUBLIC_URL + '/img/champions/Akali.png'} alt=""/>
       <MainContainer>
         <p><InputBar type = 'text' value = {inputValue} onChange={handleInputChange} /></p>
+        <LevelSelector />
         <ButtonContainer>
         <Button onClick={handleClick1}>Q</Button>
         <Button onClick={handleClick2}>W</Button>
