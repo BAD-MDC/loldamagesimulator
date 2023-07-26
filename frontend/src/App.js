@@ -4,7 +4,134 @@ import styled from "styled-components";
 import axios from "axios";
 import React from 'react';
 
-const SearchSelect = ({ data }) => {
+const data = [
+    'Hextech Rocketbelt',
+    'Shadowflame',
+    'Zhonyas Hourglass',
+    'Rabaons Deathcap',
+    'Void Staff',
+    'Socerers Shoes',
+  ];
+
+function Create1(){
+  function Header(){
+    return <header>
+      <h1 ><a href="/">LOL_MDC</a></h1>
+    </header>
+  }
+  function Article(){
+    return <article>
+      <h2>Welcome to LOL_MDC</h2>
+      LOL_MDC has Analysis League of Legends' Skill Damage Calculator.
+      <p>This Page is made by BAD-MDC, People who leave the Air Force training camp for health problems and find a New Way.</p>
+    </article>
+  }
+
+  const [inputValue, setInputValue] = useState('');
+  const [inputItem, setInputItem] = useState('');
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+  };
+  const handleReset = () => {
+    setInputValue('');
+  };
+
+  const LevelSelector = () => {
+    const [selectedLevel, setSelectedLevel] = useState('');
+    const handleLevelChange = (event) => {
+    setSelectedLevel(event.target.value);
+  };
+    return (
+    <div>
+      <select value={selectedLevel} onChange={handleLevelChange}>
+        <option value="">레벨을 선택하세요</option>
+        <option value="1">Level 1</option>
+        <option value="3">Level 3</option>
+        <option value="6">Level 6</option>
+        <option value="16">Level 16</option>
+        <option value="18">Level 18</option>
+      </select>
+      {selectedLevel && <p>You selected Level {selectedLevel}</p>}
+    </div>
+  );
+};
+
+  const QLevelSelector = () => {
+    const [selectedQLevel, setSelectedQLevel] = useState('');
+    const handleQLevelChange = (event) => {
+    setSelectedQLevel(event.target.value);
+  };
+    return (
+    <div>
+      <select value={selectedQLevel} onChange={handleQLevelChange}>
+        <option value="">Q Level</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      {selectedQLevel && <p> Q Level : {selectedQLevel}</p>}
+    </div>
+  );
+};
+  const WLevelSelector = () => {
+    const [selectedWLevel, setSelectedWLevel] = useState('');
+    const handleWLevelChange = (event) => {
+    setSelectedWLevel(event.target.value);
+  };
+    return (
+    <div>
+      <select value={selectedWLevel} onChange={handleWLevelChange}>
+        <option value="">W Level</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      {selectedWLevel && <p> W Level : {selectedWLevel}</p>}
+    </div>
+  );
+};
+const ELevelSelector = () => {
+    const [selectedELevel, setSelectedELevel] = useState('');
+    const handleELevelChange = (event) => {
+    setSelectedELevel(event.target.value);
+  };
+    return (
+    <div>
+      <select value={selectedELevel} onChange={handleELevelChange}>
+        <option value="">E Level</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      {selectedELevel && <p> E Level : {selectedELevel}</p>}
+    </div>
+  );
+};
+const RLevelSelector = () => {
+    const [selectedRLevel, setSelectedRLevel] = useState('');
+    const handleRLevelChange = (event) => {
+    setSelectedRLevel(event.target.value);
+  };
+    return (
+    <div>
+      <select value={selectedRLevel} onChange={handleRLevelChange}>
+        <option value="">R Level</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      {selectedRLevel && <p> R Level : {selectedRLevel}</p>}
+    </div>
+  );
+};
+  const SearchSelect = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState(data);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -46,85 +173,14 @@ const SearchSelect = ({ data }) => {
     </div>
   );
 };
-
-//선택된 아이템 값은 selectedItem에 들어 있어, 이를 토대로 향후 아이템 값을 적용할 수 있음
-
-const data = [
-    'Hextech Rocketbelt',
-    'Shadowflame',
-    'Zhonyas Hourglass',
-    'Rabaons Deathcap',
-    'Void Staff',
-    'Socerers Shoes',
-  ];
-
-const LevelSelector = () => {
-  const [selectedLevel, setSelectedLevel] = useState('');
-
-  const handleLevelChange = (event) => {
-    setSelectedLevel(event.target.value);
-  };
-
-  return (
-    <div>
-      <select value={selectedLevel} onChange={handleLevelChange}>
-        <option value="">레벨을 선택하세요</option>
-        <option value="1">Level 1</option>
-        <option value="3">Level 3</option>
-        <option value="6">Level 6</option>
-        <option value="16">Level 16</option>
-        <option value="18">Level 18</option>
-      </select>
-      {selectedLevel && <p>You selected Level {selectedLevel}</p>}
-    </div>
-  );
-};
-
-function Header(){
-  return <header>
-    <h1 ><a href="/">LOL_MDC</a></h1>
-  </header>
-}
-
-function Article1(){
-  return <article>
-    <h2>Welcome to LOL_MDC</h2>
-      LOL_MDC has Analysis League of Legends' Skill Damage Calculator.
-  </article>
-}
-
-function Article2(){
-  return <article>
-    This Page is made by BAD-MDC, People who leave the Air Force training camp for health problems and find a New Way.
-  </article>
-}
-
-function Nav(props){
-  return <nav>
-    <ol>
-
-    </ol>
-  </nav>
-}
-
-function Create1(){
-  const [inputValue, setInputValue] = useState('');
-  const [inputItem, setInputItem] = useState('');
-
-  const handleInputChange = (e) => {
-    const { value } = e.target;
-  };
-  const handleReset = () => {
-    setInputValue('');
-  };
-  const handleSum = (inputvalue,data) => {
+  const handleSum = (inputValue,data,selectedLevel,selectedItem) => {
     alert("계산")
     axios
       .post("http://localhost:8000/test/", {
         name:"아리",
-        combo: inputvalue,
-        level: 12,
-        item: "마법사의 지팡이",
+        combo: inputValue,
+        level: selectedLevel,
+        item: selectedItem,
       })
     .then((response) => {
         if (response.status < 300) {
@@ -152,16 +208,24 @@ function Create1(){
   };
   const handleClick6 = () =>{
     setInputItem(inputItem);
-  };
+  }; //향후 아이템 개수 늘어날 때 사용
 
   return <article>
+    <MaeContainer>
+    <Header />
+    <Article />
     <h1>Skill</h1>
+      </MaeContainer>
     <div>
       <p>Select Your Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Akali.png'} alt=""/>
       <MainContainer>
         <p><InputBar type = 'text' value = {inputValue} onChange={handleInputChange} /></p>
         <LevelSelector />
+        <QLevelSelector />
+        <WLevelSelector />
+        <ELevelSelector />
+        <RLevelSelector />
         <ButtonContainer>
         <Button onClick={handleClick1}>Q</Button>
         <Button onClick={handleClick2}>W</Button>
@@ -170,7 +234,6 @@ function Create1(){
         <Button onClick={handleClick5}>평타</Button>
         <p><CalButton onClick={handleReset}>Reset</CalButton></p>
         </ButtonContainer>
-      </MainContainer>
       <p>{inputValue && <p>Combo: {inputValue}</p>}</p>
       <p><h2>Item Search</h2></p>
       <SearchSelect data={data} />
@@ -178,6 +241,7 @@ function Create1(){
       <p>Select Your Opposite Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Aatrox.png'} alt=""/>
       <p><CalButton onClick={()=>{handleSum(inputValue,data)}}>Analysis</CalButton></p>
+        </MainContainer>
     </div>
   </article>
 }
@@ -186,14 +250,18 @@ function App() {
   let content = <Create1></Create1>;
   return (
     <div>
-      <Header></Header>
-      <Article1></Article1>
-      <Article2></Article2>
-      <Nav></Nav>
       {content}
     </div>
   );
 }
+
+const MaeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+`;
 
 const MainContainer = styled.div`
   display: flex;
