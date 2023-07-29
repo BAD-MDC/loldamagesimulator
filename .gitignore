@@ -5,5 +5,3 @@
 #backend 데이터 베이스 , 마이그레이션
 backend/db.sqlite3
 backend/api/migrations/
-
-
