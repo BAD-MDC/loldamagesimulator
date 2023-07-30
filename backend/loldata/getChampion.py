@@ -1,5 +1,6 @@
 import requests
 import json
+from pathlib import Path
 
 def latest_version():
     version_url = "https://ddragon.leagueoflegends.com/api/versions.json"
@@ -45,10 +46,19 @@ def writeChampionTXT(champion_name) :
             + str(champion(champion_name)['data'][champion_name]['stats']['attackspeed']) + '\n'\
             + str(champion(champion_name)['data'][champion_name]['stats']['attackspeedperlevel']) + '\n'
 
+    champion_skill_txt_file = open('./champion_skill_dmg/' + champion_name + '_skill.txt', 'r')
+    while True:
+        dmg = champion_skill_txt_file.readline()
+        if not dmg: break
+        data = data + dmg
+
     champion_txt_file_name.write(data)
     champion_txt_file_name.close()
 
-
+# 챔피언 스킬 데미지 전용 파일 만들기
+def setChampionSkillDmg(champion_name) :
+    txt_file = open('./champion_skill_dmg/' + champion_name + '_skill.txt', 'w')
+    txt_file.write("")
 
 for champ in champions()['data'] :
     writeChampionTXT(champ)
