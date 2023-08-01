@@ -14,18 +14,29 @@ def damageSimulator(champion, combo, level, item, skill_level):
     armor = stats[2]
     spellblock = stats[3]
     ad = stats[4]
+    bonusad = 0
     atkspd = stats[5]
     ap = 0
-    physical_dmg = 0
-    magical_dmg = 0
-    true_dmg = 0
-    q_dmg = getChampionSkill(champion, "Q")
-    w_dmg = getChampionSkill(champion, "W")
-    e_dmg = getChampionSkill(champion, "E")
-    r_dmg = getChampionSkill(champion, "R")
-    getRealSkillDamage(getChampionSkill(champion,"E"),5, [ad,ad,ap,atkspd])
+    total_dmg = [0.0 , 0.0 , 0.0]
+    q_dmg = getRealSkillDamage(getChampionSkill(champion,"Q"),int(skill_level[0]), [ad,bonusad,ap,atkspd])
+    w_dmg = getRealSkillDamage(getChampionSkill(champion,"W"),int(skill_level[1]), [ad,bonusad,ap,atkspd])
+    e_dmg = getRealSkillDamage(getChampionSkill(champion,"E"),int(skill_level[2]), [ad,bonusad,ap,atkspd])
+    r_dmg = getRealSkillDamage(getChampionSkill(champion,"R"),int(skill_level[3]), [ad,bonusad,ap,atkspd])
+
+    for skill in combo :
+        for i in range (0,3) :
+            if skill == 'q' or skill == 'Q' :
+                total_dmg[i] = total_dmg[i] + q_dmg[i]
+            elif skill == 'w' or skill == 'W' :
+                total_dmg[i] = total_dmg[i] + w_dmg[i]
+            elif skill == 'e' or skill == 'E' :
+                total_dmg[i] = total_dmg[i] + e_dmg[i]
+            elif skill == 'r' or skill == 'R' :
+                total_dmg[i] = total_dmg[i] + r_dmg[i]
+
+    print(total_dmg)
 
 
 
-damageSimulator("Akali","qwer",13,"none","5512")
+damageSimulator("Akali","qwer",13,"none","5152")
 

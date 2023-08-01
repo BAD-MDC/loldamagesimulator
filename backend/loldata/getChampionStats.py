@@ -48,6 +48,9 @@ def getRealSkillDamage(damages,skill_level,champion_power):
     if damages == [] :
         return result
 
+    if skill_level == 0 :
+        return result
+
     for damage in damages:
         damage_split = damage.split('# ')
 
