@@ -37,7 +37,7 @@ function Create1(){
     setInputValue('');
   };
 
-  const LevelSelector = () => {
+  function LevelSelector(){
     const [selectedLevel, setSelectedLevel] = useState('');
     const handleLevelChange = (event) => {
     setSelectedLevel(event.target.value);
@@ -57,7 +57,7 @@ function Create1(){
   );
 };
 
-  const QLevelSelector = () => {
+  function QLevelSelector(){
     const [selectedQLevel, setSelectedQLevel] = useState('');
     const handleQLevelChange = (event) => {
     setSelectedQLevel(event.target.value);
@@ -76,7 +76,7 @@ function Create1(){
     </div>
   );
 };
-  const WLevelSelector = () => {
+  function WLevelSelector(){
     const [selectedWLevel, setSelectedWLevel] = useState('');
     const handleWLevelChange = (event) => {
     setSelectedWLevel(event.target.value);
@@ -95,7 +95,7 @@ function Create1(){
     </div>
   );
 };
-const ELevelSelector = () => {
+function ELevelSelector(){
     const [selectedELevel, setSelectedELevel] = useState('');
     const handleELevelChange = (event) => {
     setSelectedELevel(event.target.value);
@@ -114,7 +114,7 @@ const ELevelSelector = () => {
     </div>
   );
 };
-const RLevelSelector = () => {
+function RLevelSelector(){
     const [selectedRLevel, setSelectedRLevel] = useState('');
     const handleRLevelChange = (event) => {
     setSelectedRLevel(event.target.value);
@@ -180,6 +180,11 @@ const RLevelSelector = () => {
         name:"아리",
         combo: inputValue,
         level: selectedLevel,
+        /* qlevel: selectedQLevel,
+        wlevel: selectedWLevel,
+        elevel: selectedELevel,
+        rlevel: selectedRLevel,
+        */
         item: selectedItem,
       })
     .then((response) => {
