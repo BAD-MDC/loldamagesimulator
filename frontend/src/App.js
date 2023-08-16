@@ -51,6 +51,11 @@ function Create1(){
         <option value="Akali">Akali</option>
         <option value="Akshan">Akshan</option>
         <option value="Alistar">Alistar</option>
+        <option value="Amumu">Amumu</option>
+        <option value="Anivia">Anivia</option>
+        <option value="Annie">Annie</option>
+        <option value="Aphelios">Aphelios</option>
+        <option value="Ashe">Ashe</option>
       </select>
       {selectedChampion && <p>You selected Champion {selectedChampion}</p>}
     </div>
