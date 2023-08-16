@@ -37,6 +37,26 @@ function Create1(){
     setInputValue('');
   };
 
+  function ChampionSelector(){
+    const [selectedChampion, setSelectedChampion] = useState('');
+    const handleChampionChange = (event) => {
+    setSelectedChampion(event.target.value);
+  };
+    return (
+    <div>
+      <select value={selectedChampion} onChange={handleChampionChange}>
+        <option value="">챔피언을 선택하세요</option>
+        <option value="Aatrox">Aatrox</option>
+        <option value="Ahri">Ahri</option>
+        <option value="Akali">Akali</option>
+        <option value="Akshan">Akshan</option>
+        <option value="Alistar">Alistar</option>
+      </select>
+      {selectedChampion && <p>You selected Champion {selectedChampion}</p>}
+    </div>
+  );
+};
+
   function LevelSelector(){
     const [selectedLevel, setSelectedLevel] = useState('');
     const handleLevelChange = (event) => {
@@ -222,9 +242,10 @@ function RLevelSelector(){
     <h1>Skill</h1>
       </MaeContainer>
     <div>
+      <MainContainer>
       <p>Select Your Champion and its State</p>
       <img src={process.env.PUBLIC_URL + '/img/champions/Akali.png'} alt=""/>
-      <MainContainer>
+        <ChampionSelector />
         <p><InputBar type = 'text' value = {inputValue} onChange={handleInputChange} /></p>
         <LevelSelector />
         <QLevelSelector />
@@ -265,7 +286,7 @@ const MaeContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  height: 60vh;
 `;
 
 const MainContainer = styled.div`
@@ -273,7 +294,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  height: 150vh;
 `;
 
 const ButtonContainer = styled.div`
