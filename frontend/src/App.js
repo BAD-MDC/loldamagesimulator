@@ -198,11 +198,11 @@ function RLevelSelector(){
     </div>
   );
 };
-  const handleSum = (inputValue,data,selectedLevel,selectedItem) => {
+  const handleSum = (inputValue,data,selectedChampion,selectedLevel,selectedItem) => {
     alert("계산")
     axios
       .post("http://localhost:8000/test/", {
-        name:"아리",
+        name: selectedChampion,
         combo: inputValue,
         level: selectedLevel,
         /* qlevel: selectedQLevel,
