@@ -285,67 +285,110 @@ function App() {
     </div>
   );
 }
-
 const MaeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 60vh;
+  padding: 40px 20px;
+  background-color: #f9fafc;
 `;
 
 const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 150vh;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px;
+`;
+
+const Section = styled.section`
+  margin-bottom: 30px;
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+  }
 `;
 
 const ButtonContainer = styled.div`
   display: grid;
-  width: 40%;
-  max-width: 450px;
-  height: 20%;
   grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  gap: 10px;
+  margin-top: 15px;
 `;
 
 const Button = styled.button`
   background-color: #f2f3f5;
   border: none;
-  color: black;
-  font-size: 1.5rem;
-  border-radius: 35px;
+  color: #333;
+  font-size: 1rem;
+  border-radius: 25px;
+  padding: 10px 0;
   cursor: pointer;
-  box-shadow: 2px 2px 2px lightgray;
+  transition: all 0.2s;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+
+  &:hover {
+    background-color: #e1e3e6;
+  }
 
   &:active {
-    margin-left: 1px;
-    margin-top: 1px;
+    transform: translate(1px, 1px);
     box-shadow: none;
   }
 `;
 
 const CalButton = styled(Button)`
-  font-size: 2rem;
-  color: white;
+  grid-column: span 5;
   background-color: #4b89dc;
+  color: white;
+  font-size: 1.2rem;
+
+  &:hover {
+    background-color: #3a6fb8;
+  }
 `;
 
 const InputBar = styled.input`
-  width: 50%;
-  max-width: 450px;
-  height: 25px;
-  margin-bottom: 5px;
+  width: 100%;
+  padding: 12px 16px;
+  margin: 10px 0;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 16px;
   border: 2px solid #4b89dc;
-  text-align: center;
-  padding-right: 10px;
+  outline: none;
+  transition: border-color 0.3s;
+
   &:focus {
+    border-color: #345f99;
+  }
+`;
+
+const SelectWrapper = styled.div`
+  width: 100%;
+  margin: 10px 0;
+
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     outline: none;
+  }
+
+  p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
   }
 `;
 
